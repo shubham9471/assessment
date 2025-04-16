@@ -1,0 +1,9 @@
+{"level":"error","message":"404 - Not Found - /products - /products - GET - ::1","timestamp":"2025-04-16T04:46:32.230Z"}
+{"level":"error","message":"500 - Error fetching products: Product.findAll is not a function - /api/products - GET - ::1","timestamp":"2025-04-16T04:48:32.116Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:53:46.098Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:53:51.642Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:58:57.847Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:59:00.476Z"}
+{"level":"error","message":"500 - Error fetching product: Product not found - /api/products/:1 - GET - ::1","timestamp":"2025-04-16T05:11:33.141Z"}
+{"level":"error","message":"400 - Unexpected token '}', ...\"ntity\": \n\n}\" is not valid JSON - /api/products - POST - ::1","timestamp":"2025-04-16T05:27:10.392Z"}
+{"level":"error","message":"500 - Error creating product: Cannot add or update a child row: a foreign key constraint fails (`mystore`.`products`, CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CategoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE) - /api/products - POST - ::1","timestamp":"2025-04-16T05:27:17.475Z"}

@@ -1,0 +1,36 @@
+{
+"development": {
+  "username": "root",
+  "password": "shanu2604",
+  "database": "mystore",
+  "host": "localhost",
+  "dialect": "mysql",
+  "port": 3306
+},
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "mystore_test",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3306,
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
+  },
+  "production": {
+    "username": "root",
+    "password": "",
+    "database": "mystore_prod",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3306,
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
+  }
+} 

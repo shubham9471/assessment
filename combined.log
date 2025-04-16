@@ -1,0 +1,25 @@
+{"level":"error","message":"404 - Not Found - /products - /products - GET - ::1","timestamp":"2025-04-16T04:46:32.230Z"}
+{"level":"info","message":"GET /products 404 58 - 14.011 ms","timestamp":"2025-04-16T04:46:32.248Z"}
+{"level":"error","message":"500 - Error fetching products: Product.findAll is not a function - /api/products - GET - ::1","timestamp":"2025-04-16T04:48:32.116Z"}
+{"level":"info","message":"GET /api/products 500 95 - 26.693 ms","timestamp":"2025-04-16T04:48:32.132Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:53:46.098Z"}
+{"level":"info","message":"GET /api/products 500 115 - 72.198 ms","timestamp":"2025-04-16T04:53:46.113Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:53:51.642Z"}
+{"level":"info","message":"GET /api/products 500 115 - 9.409 ms","timestamp":"2025-04-16T04:53:51.644Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:58:57.847Z"}
+{"level":"info","message":"GET /api/products 500 115 - 19.329 ms","timestamp":"2025-04-16T04:58:57.857Z"}
+{"level":"error","message":"500 - Error fetching products: Unknown column 'Product.CategoryName' in 'field list' - /api/products - GET - ::1","timestamp":"2025-04-16T04:59:00.476Z"}
+{"level":"info","message":"GET /api/products 500 115 - 5.069 ms","timestamp":"2025-04-16T04:59:00.478Z"}
+{"level":"info","message":"GET /api/products 200 1034 - 103.354 ms","timestamp":"2025-04-16T05:05:13.335Z"}
+{"level":"info","message":"GET /api/products/:1 400 39 - 3.200 ms","timestamp":"2025-04-16T05:08:23.311Z"}
+{"level":"error","message":"500 - Error fetching product: Product not found - /api/products/:1 - GET - ::1","timestamp":"2025-04-16T05:11:33.141Z"}
+{"level":"info","message":"GET /api/products/:1 500 78 - 38.322 ms","timestamp":"2025-04-16T05:11:33.151Z"}
+{"level":"info","message":"GET /api/products/1 200 336 - 26.622 ms","timestamp":"2025-04-16T05:11:47.018Z"}
+{"level":"info","message":"POST /api/products 201 203 - 58.950 ms","timestamp":"2025-04-16T05:24:16.156Z"}
+{"level":"info","message":"GET /api/products 200 1285 - 25.277 ms","timestamp":"2025-04-16T05:25:30.875Z"}
+{"level":"info","message":"DELETE /api/products/5 400 39 - 3.442 ms","timestamp":"2025-04-16T05:25:35.814Z"}
+{"level":"info","message":"DELETE /api/products/5 200 42 - 22.552 ms","timestamp":"2025-04-16T05:26:38.545Z"}
+{"level":"info","message":"POST /api/products 400 46 - 3.727 ms","timestamp":"2025-04-16T05:26:54.700Z"}
+{"level":"error","message":"400 - Unexpected token '}', ...\"ntity\": \n\n}\" is not valid JSON - /api/products - POST - ::1","timestamp":"2025-04-16T05:27:10.392Z"}
+{"level":"error","message":"500 - Error creating product: Cannot add or update a child row: a foreign key constraint fails (`mystore`.`products`, CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CategoryId`) REFERENCES `categories` (`id`) ON UPDATE CASCADE) - /api/products - POST - ::1","timestamp":"2025-04-16T05:27:17.475Z"}
+{"level":"info","message":"POST /api/products 500 254 - 32.317 ms","timestamp":"2025-04-16T05:27:17.476Z"}
