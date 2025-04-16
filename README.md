@@ -81,11 +81,12 @@ This is a Node.js backend application that provides a REST API for managing prod
 - UpdatedAt (timestamp)
 
 
-#NOTE:
-I have also created api for Categories in case you wanna explore that, haven't tested it much though
 ### Categories Table
 - CategoryName (string)
 - Description (string)
 - IsActive (boolean)
 - CreatedAt (timestamp)
 - UpdatedAt (timestamp) 
+
+#NOTE:
+I have also created api for Categories in case you wanna explore that, haven't tested it much though
