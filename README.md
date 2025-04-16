@@ -4,7 +4,7 @@ This is a Node.js backend application that provides a REST API for managing prod
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (v14 or higher) # I have used NodeJs instead of nest as I have worked on NodeJs throughout
 - MySQL database
 - npm (Node Package Manager)
 
