@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { sequelize } = require('./config/database.js');
 const { router: productRoutes } = require('./routes/productRoutes.js');
+const { router: categoryRoutes } = require('./routes/categoryRoutes.js');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler.js');
 const { requestLogger } = require('./middleware/requestLogger.js');
 
@@ -16,6 +17,7 @@ app.use(requestLogger);
 
 // Routes
 app.use('/api', productRoutes);
+app.use('/api', categoryRoutes);
 
 // Error handling
 app.use(notFoundHandler);

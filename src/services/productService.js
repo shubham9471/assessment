@@ -1,5 +1,6 @@
 const { Product } = require('../models/Product.js');
 const { Category } = require('../models/Category.js');
+const { sequelize } = require('../config/database.js');
 
 const getAllProducts = async () => {
   try {
@@ -36,36 +37,45 @@ const getProductById = async (id) => {
 };
 
 const createProduct = async (productData) => {
+  const transaction = await sequelize.transaction();
   try {
-    const product = await Product.create(productData);
+    const product = await Product.create(productData, { transaction });
+    await transaction.commit();
     return product;
   } catch (error) {
+    await transaction.rollback();
     throw new Error(`Error creating product: ${error.message}`);
   }
 };
 
 const updateProduct = async (id, productData) => {
+  const transaction = await sequelize.transaction();
   try {
     const product = await Product.findByPk(id);
     if (!product) {
       throw new Error('Product not found');
     }
-    await product.update(productData);
+    await product.update(productData, { transaction });
+    await transaction.commit();
     return product;
   } catch (error) {
+    await transaction.rollback();
     throw new Error(`Error updating product: ${error.message}`);
   }
 };
 
 const deleteProduct = async (id) => {
+  const transaction = await sequelize.transaction();
   try {
     const product = await Product.findByPk(id);
     if (!product) {
       throw new Error('Product not found');
     }
-    await product.destroy();
+    await product.destroy({ transaction });
+    await transaction.commit();
     return { message: 'Product deleted successfully' };
   } catch (error) {
+    await transaction.rollback();
     throw new Error(`Error deleting product: ${error.message}`);
   }
 };

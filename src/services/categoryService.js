@@ -1,5 +1,5 @@
-const Category = require('../models/Category.js');
-const sequelize = require('../config/database.js');
+const {Category} = require('../models/Category.js');
+const { sequelize } = require('../config/database.js');
 
 
 const createCategory = async (categoryData) => {
