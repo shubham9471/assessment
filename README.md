@@ -21,8 +21,8 @@ This is a Node.js backend application that provides a REST API for managing prod
    - Update the `.env` file with your database credentials:
      ```
      DB_HOST=localhost
-     DB_USER=your_username
-     DB_PASSWORD=your_password
+     DB_USER=your_username // mine : root
+     DB_PASSWORD=your_password // mine : shanu2604(in case you wanna check)
      DB_NAME=mystore
      DB_PORT=3306
      PORT=3000
@@ -80,6 +80,9 @@ This is a Node.js backend application that provides a REST API for managing prod
 - CreatedAt (timestamp)
 - UpdatedAt (timestamp)
 
+
+#NOTE:
+I have also created api for Categories in case you wanna explore that, haven't tested it much though
 ### Categories Table
 - CategoryName (string)
 - Description (string)
