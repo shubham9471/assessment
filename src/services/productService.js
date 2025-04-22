@@ -1,89 +1,53 @@
-const { Product } = require('../models/Product.js');
-const { Category } = require('../models/Category.js');
-const { sequelize } = require('../config/database.js');
+const ProductRepository = require('../repositories/ProductRepository.js');
 
-const getAllProducts = async () => {
-  try {
-    const products = await Product.findAll({
-      attributes: ['id', 'ProductName', 'Description', 'Price', 'StockQuantity', 'CategoryId'],
-      include: [{
-        model: Category,
-        attributes: ['CategoryName', 'Description', 'IsActive']
-      }],
-      raw: true,
-      // nest: true
-    });
-    return products;
-  } catch (error) {
-    throw new Error(`Error fetching products: ${error.message}`);
+class ProductService {
+  constructor() {
+    this.productRepository = new ProductRepository();
   }
-};
 
-const getProductById = async (id) => {
-  try {
-    const product = await Product.findByPk(id, {
-      include: [{
-        model: Category,
-        attributes: ['CategoryName', 'Description', 'IsActive']
-      }]
-    });
-    if (!product) {
-      throw new Error('Product not found');
+  async getAllProducts() {
+    try {
+      return await this.productRepository.findAllWithCategory();
+    } catch (error) {
+      throw new Error(`Error fetching products: ${error.message}`);
     }
-    return product;
-  } catch (error) {
-    throw new Error(`Error fetching product: ${error.message}`);
   }
-};
 
-const createProduct = async (productData) => {
-  const transaction = await sequelize.transaction();
-  try {
-    const product = await Product.create(productData, { transaction });
-    await transaction.commit();
-    return product;
-  } catch (error) {
-    await transaction.rollback();
-    throw new Error(`Error creating product: ${error.message}`);
-  }
-};
-
-const updateProduct = async (id, productData) => {
-  const transaction = await sequelize.transaction();
-  try {
-    const product = await Product.findByPk(id);
-    if (!product) {
-      throw new Error('Product not found');
+  async getProductById(id) {
+    try {
+      const product = await this.productRepository.findByIdWithCategory(id);
+      if (!product) {
+        throw new Error('Product not found');
+      }
+      return product;
+    } catch (error) {
+      throw new Error(`Error fetching product: ${error.message}`);
     }
-    await product.update(productData, { transaction });
-    await transaction.commit();
-    return product;
-  } catch (error) {
-    await transaction.rollback();
-    throw new Error(`Error updating product: ${error.message}`);
   }
-};
 
-const deleteProduct = async (id) => {
-  const transaction = await sequelize.transaction();
-  try {
-    const product = await Product.findByPk(id);
-    if (!product) {
-      throw new Error('Product not found');
+  async createProduct(productData) {
+    try {
+      return await this.productRepository.create(productData);
+    } catch (error) {
+      throw new Error(`Error creating product: ${error.message}`);
     }
-    await product.destroy({ transaction });
-    await transaction.commit();
-    return { message: 'Product deleted successfully' };
-  } catch (error) {
-    await transaction.rollback();
-    throw new Error(`Error deleting product: ${error.message}`);
   }
-};
 
-module.exports =  {
-  getAllProducts,
-  getProductById,
-  createProduct,
-  updateProduct,
-  deleteProduct
-}; 
+  async updateProduct(id, productData) {
+    try {
+      return await this.productRepository.update(id, productData);
+    } catch (error) {
+      throw new Error(`Error updating product: ${error.message}`);
+    }
+  }
+
+  async deleteProduct(id) {
+    try {
+      return await this.productRepository.delete(id);
+    } catch (error) {
+      throw new Error(`Error deleting product: ${error.message}`);
+    }
+  }
+}
+
+module.exports = new ProductService(); 
